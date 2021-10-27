@@ -30,6 +30,7 @@ const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.MOBILE_COIN]: `http://95.216.208.79:8545`,
+  [SupportedChainId.LOCAL]: `http://127.0.0.1:8545`,
 }
 
 export const network = new NetworkConnector({

@@ -152,6 +152,7 @@ export default function AddLiquidity({
     if (currencyA.isNative || currencyB.isNative) {
       const tokenBIsETH = currencyB.isNative
       estimate = router.estimateGas.addLiquidityETH
+      console.log(router)
       method = router.addLiquidityETH
       args = [
         (tokenBIsETH ? currencyA : currencyB)?.wrapped?.address ?? '', // token
@@ -184,7 +185,7 @@ export default function AddLiquidity({
 
     method(...args, {
       ...(value ? { value } : {}),
-      gasLimit: calculateGasMargin(chainId, BigNumber.from('0x583c')),
+      gasLimit: calculateGasMargin(chainId, BigNumber.from('0x1286A0')),
     })
       .then((response) => {
         console.log('response-------------->>>>>>>>>', response)

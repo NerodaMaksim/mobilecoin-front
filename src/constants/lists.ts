@@ -12,7 +12,9 @@ export const OPTIMISM_LIST = 'https://static.optimism.io/optimism.tokenlist.json
 //const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 //const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 const MOBILE_COIN_LIST =
-  'https://gist.githubusercontent.com/Motzart/eddccae2aaee88162616d27d08704e8b/raw/a5e319a79d7a2881a4b8826eee8bb0a4dcbc4f91/list.json'
+  'https://gist.githubusercontent.com/NerodaMaksim/c4267fe64f4749eb84475ab8eaca21dd/raw/963b8239992e9448fc65a6eff99f89fd24f06c22/list.json'
+
+console.log(MOBILE_COIN_LIST)
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
 

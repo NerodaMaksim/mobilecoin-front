@@ -10,7 +10,7 @@ export enum SupportedChainId {
   GOERLI = 5,
   KOVAN = 42,
   MOBILE_COIN = 22400,
-
+  LOCAL = 31337,
   ARBITRUM_ONE = 42161,
   ARBITRUM_RINKEBY = 421611,
   OPTIMISM = 10,
@@ -23,7 +23,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
-
+  SupportedChainId.LOCAL,
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.ARBITRUM_RINKEBY,
   SupportedChainId.OPTIMISM,
@@ -38,6 +38,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
   SupportedChainId.MOBILE_COIN,
+  SupportedChainId.LOCAL,
 ] as const
 
 export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
@@ -165,7 +166,16 @@ export const CHAIN_INFO: ChainInfo = {
     infoLink: 'https://info.uniswap.org/#/',
     label: 'Ethereum',
     logoUrl: ethereumLogoUrl,
-    rpcUrls: ['http://65.21.111.12:8545'],
+    rpcUrls: ['http://95.216.208.79:8545'],
+    nativeCurrency: { name: 'Mobile Coin ', symbol: 'MBC', decimals: 18 },
+  },
+  [SupportedChainId.LOCAL]: {
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://etherscan.io/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Ethereum',
+    logoUrl: ethereumLogoUrl,
+    rpcUrls: ['http://localhost:8545'],
     nativeCurrency: { name: 'Mobile Coin ', symbol: 'MBC', decimals: 18 },
   },
 }

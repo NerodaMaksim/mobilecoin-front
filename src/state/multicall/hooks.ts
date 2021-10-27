@@ -49,6 +49,7 @@ function useCallsData(
 ): CallResult[] {
   const { chainId } = useActiveWeb3React()
   const callResults = useAppSelector((state) => state.multicall.callResults)
+  console.log('CallResult', callResults)
   const dispatch = useAppDispatch()
 
   const serializedCallKeys: string = useMemo(
@@ -212,21 +213,23 @@ export function useMultipleContractSingleData(
   options: Partial<ListenerOptions> & { gasRequired?: number } = {}
 ): CallState[] {
   const fragment = useMemo(() => contractInterface.getFunction(methodName), [contractInterface, methodName])
-
+  console.log('func', fragment)
   // encode callData
   const callData: string | undefined = useMemo(
     () => (isValidMethodArgs(callInputs) ? contractInterface.encodeFunctionData(fragment, callInputs) : undefined),
     [callInputs, contractInterface, fragment]
   )
-
+  console.log('callData', callData)
   const gasRequired = options?.gasRequired
   const blocksPerFetch = options?.blocksPerFetch
 
   // encode calls
+  console.log('addresses', addresses)
   const calls = useMemo(
     () =>
       callData
         ? addresses.map<Call | undefined>((address) => {
+            console.log(address)
             return address
               ? {
                   address,
@@ -238,7 +241,7 @@ export function useMultipleContractSingleData(
         : [],
     [addresses, callData, gasRequired]
   )
-
+  console.log('calls', calls)
   const results = useCallsData(calls, blocksPerFetch ? { blocksPerFetch } : undefined)
 
   const latestBlockNumber = useBlockNumber()

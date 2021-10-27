@@ -169,7 +169,14 @@ export const WETH9_EXTENDED: { [chainId: number]: Token } = {
   ),
   [SupportedChainId.MOBILE_COIN]: new Token(
     SupportedChainId.MOBILE_COIN,
-    '0x9eF9E132466AF4823803C075e650c6FC797016B2',
+    '0x123d8Dac04973FB4DA2819F61F2c860D3eE34408',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [SupportedChainId.LOCAL]: new Token(
+    SupportedChainId.LOCAL,
+    '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
     18,
     'WETH',
     'Wrapped Ether'
